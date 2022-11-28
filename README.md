@@ -1,3 +1,11 @@
+### Changes in this fork 
+
+- If multiple step definitions are found 
+  - no MultipleStepDefinitionsError is thrown and
+  - the first match is returned
+
+___
+(Original readme:)
 # cypress-cucumber-preprocessor
 
 [![Build status](https://github.com/badeball/cypress-cucumber-preprocessor/actions/workflows/build.yml/badge.svg)](https://github.com/badeball/cypress-cucumber-preprocessor/actions/workflows/build.yml)

@@ -168,27 +168,8 @@ export class Registry {
       throw new MissingDefinitionError(
         `Step implementation missing for: ${text}`
       );
-    } else if (matchingStepDefinitions.length > 1) {
-      throw new MultipleDefinitionsError(
-        `Multiple matching step definitions for: ${text}\n` +
-          matchingStepDefinitions
-            .map((stepDefinition) => {
-              const { expression } = stepDefinition;
-
-              const stringExpression =
-                expression instanceof RegularExpression
-                  ? String(expression.regexp)
-                  : expression.source;
-
-              if (stepDefinition.position) {
-                return ` ${stringExpression} - ${stepDefinition.position.source}:${stepDefinition.position.line}`;
-              } else {
-                return ` ${stringExpression}`;
-              }
-            })
-            .join("\n")
-      );
     } else {
+      // always return the first match if multiple steps are found
       return matchingStepDefinitions[0];
     }
   }
